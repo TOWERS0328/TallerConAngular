@@ -1,0 +1,15 @@
+<!-- HTML -->
+<div class="container">
+  <h1>Perro Aleatorio</h1>
+
+  <div class="image-container">
+    <app-dog-card [dogImage]="dogImage"></app-dog-card>
+  </div>
+
+  <div class="actions">
+    <button (click)="getDog()" class="btn-primary">
+      <span>Siguiente</span>
+    </button>
+    <a [routerLink]="['/gallery']" class="btn-secondary">Galería</a>
+  </div>
+</div>
