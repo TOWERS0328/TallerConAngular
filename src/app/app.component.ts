@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [RouterModule] // IMPORTANTE: Asegura que RouterModule esté aquí
+  imports: [RouterModule], // ✅ Asegura que RouterModule está aquí
 })
-export class AppComponent { }
+export class AppComponent {
+  title = 'Galería de Perros'; // ✅ Agregado para que coincida con la prueba
+}

@@ -12,8 +12,12 @@ export class DogService {
 
   constructor(private http: HttpClient) {}
 
-  getRandomDog(): Observable<{ message: string; status: string }> {
-    return this.http.get<{ message: string; status: string }>(`${this.apiUrl}/breeds/image/random`);
+  getRandomDogs(count: number = 8): Observable<{ message: string[]; status: string }> {
+    return this.http.get<{ message: string[]; status: string }>(`${this.apiUrl}/breeds/image/random/${count}`);
+  }
+
+  getImagesByBreed(breed: string): Observable<{ message: string[]; status: string }> { // ✅ Definir tipo de retorno
+    return this.http.get<{ message: string[]; status: string }>(`${this.apiUrl}/breed/${breed}/images`);
   }
 
   addImage(image: string) {
@@ -24,4 +28,3 @@ export class DogService {
     return this.images; // Devuelve todas las imágenes almacenadas
   }
 }
-
