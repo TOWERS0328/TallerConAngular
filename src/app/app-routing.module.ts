@@ -1,17 +1,25 @@
 import { Routes, RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
 import { HomeComponent } from './pages/home/home.component';
-import { GalleryComponent } from './pages/gallery/gallery.component';
+import { importProvidersFrom } from '@angular/core';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent }, // 🏡 Home
-  { path: 'gallery', component: GalleryComponent }, // 🖼️ Galería
-  { path: 'random', loadChildren: () => import('./pages/random/random.module').then(m => m.RandomModule) }, // 📸 Lazy Load de imágenes aleatorias
-  { path: 'search', loadChildren: () => import('./pages/search/search.module').then(m => m.SearchModule) } // 🔎 Lazy Load de búsqueda
+  {
+    path: 'random',
+    loadComponent: () => import('./pages/random/random.component').then(m => m.RandomComponent)
+  }, // 📸 Lazy Load de imágenes aleatorias
+  {
+    path: 'search',
+    loadComponent: () => import('./pages/search/search.component').then(m => m.SearchComponent)
+  }, // 🔎 Lazy Load de búsqueda de perros
+  {
+    path: 'cats',
+    loadComponent: () => import('./pages/cats/cats.component').then(m => m.CatsComponent)
+  }, // 🐱 Lazy Load de imágenes de gatos
+  {
+    path: 'cat-search',
+    loadComponent: () => import('./pages/cat-search/cat-search.component').then(m => m.CatSearchComponent)
+  } // 🔎🐱 Lazy Load de búsqueda de gatos
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+export const routing = importProvidersFrom(RouterModule.forRoot(routes));

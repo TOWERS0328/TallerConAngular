@@ -18,15 +18,15 @@ export class SearchComponent {
 
   searchBreed() {
     if (!this.breed.trim()) return;
-  
+
     // Convertir a minúsculas y eliminar espacios
     const breedFormatted = this.breed.toLowerCase().replace(/\s+/g, '');
-  
+
     this.dogService.getImagesByBreed(breedFormatted).subscribe({
       next: (data) => this.dogImages = data.message,
       error: (err) => console.error(`Error al obtener imágenes para la raza "${breedFormatted}":`, err)
     });
   }
-  
+
 
 }
