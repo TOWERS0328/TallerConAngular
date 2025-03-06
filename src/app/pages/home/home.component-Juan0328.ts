@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DogCardComponent } from '../../components/dog-card/dog-card.component';
+
 import { RouterModule } from '@angular/router';
 import { DogService } from '../../services/dog.service'; // ✅ Importación corregida
 import { FormsModule } from '@angular/forms';
@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, DogCardComponent, RouterModule, FormsModule],
+
   providers: [DogService], // ✅ Asegurar que el servicio está en providers
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
