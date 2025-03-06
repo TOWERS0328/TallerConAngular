@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CatService {
   private apiUrl = 'https://api.thecatapi.com/v1/';
-  private apiKey = 'tu_api_key_aquí';
+  private apiKey = 'live_8GzlHiTR8TyAdFNh0LsVjoA4fnYJNYIvvPIRt2al0YJQV5AA6lw4Q1y1PejdF0jE';
 
   constructor(private http: HttpClient) {}
 

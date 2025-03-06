@@ -1,1 +1,25 @@
-<p>cat-gallery works!</p>
+
+<div class="container mt-4">
+  <h2 class="text-primary text-center">🐱 Galería de Gatos</h2>
+
+  <div class="text-center mb-3 d-flex flex-wrap justify-content-center gap-2">
+    <button (click)="getRandomCats()" class="btn btn-primary">Cargar Imágenes Aleatorias</button>
+
+    <select [(ngModel)]="selectedBreed" class="form-select form-select-sm w-auto">
+      <option *ngFor="let breed of catBreeds" [value]="breed.id">{{ breed.name }}</option>
+    </select>
+
+    <button (click)="getCatsByBreed()" class="btn btn-secondary">Buscar por Raza</button>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 mb-4" *ngFor="let cat of catImages">
+      <div class="card shadow-lg">
+        <img [src]="cat.url" class="card-img-top" alt="Gato">
+        <div class="card-body text-center">
+          <p class="card-text">🐱 {{ cat.breeds?.[0]?.name || 'Gato' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

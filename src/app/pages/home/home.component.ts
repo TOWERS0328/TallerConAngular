@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DogCardComponent } from '../../components/dog-card/dog-card.component';
+
 import { RouterModule } from '@angular/router';
 import { DogService } from '../../services/dog.service';
 import { FormsModule } from '@angular/forms';
@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http'; // ✅ Importar HttpCli
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, DogCardComponent, RouterModule, FormsModule, HttpClientModule], // ✅ Agregado aquí
+
   providers: [DogService],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
@@ -58,7 +58,7 @@ export class HomeComponent {
     const apiBreed = breedMap[this.breed.toLowerCase()] || formattedBreed;
 
     this.isLoading = true;
-    this.dogImages = []; 
+    this.dogImages = [];
 
     this.dogService.getImagesByBreed(apiBreed).subscribe(
       (response: { message: string[]; status: string }) => {

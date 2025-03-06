@@ -10,17 +10,10 @@ export const routes: Routes = [
       .then(m => m.DogGalleryComponent)
   }, // 🐶 Lazy Load de la Galería de Perros
   {
-  
-
-    path: 'cats',
-    loadComponent: () => import('./pages/cats/cats.component')
-      .then(m => m.CatsComponent)
-  }, // 🐱 Lazy Load de imágenes de gatos
-  {
-    path: 'cat-search',
-    loadComponent: () => import('./pages/cat-search/cat-search.component')
-      .then(m => m.CatSearchComponent)
-  } // 🔎🐱 Lazy Load de búsqueda de gatos
+    path: 'cat-gallery',
+    loadComponent: () => import('./pages/cat-gallery/cat-gallery.component')
+      .then(m => m.CatGalleryComponent)
+  } // 🐱 Nueva Galería Unificada de Gatos
 ];
 
 export const routing = importProvidersFrom(RouterModule.forRoot(routes));
