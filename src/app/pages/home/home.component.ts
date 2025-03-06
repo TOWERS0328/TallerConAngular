@@ -58,7 +58,7 @@ export class HomeComponent {
     const apiBreed = breedMap[this.breed.toLowerCase()] || formattedBreed;
 
     this.isLoading = true;
-    this.dogImages = []; // ✅ Limpiar imágenes previas antes de la nueva búsqueda
+    this.dogImages = []; 
 
     this.dogService.getImagesByBreed(apiBreed).subscribe(
       (response: { message: string[]; status: string }) => {
